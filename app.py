@@ -7,7 +7,7 @@ try:
     while True:
         coinmarketcap = Market()
         
-        with open(DB, 'r+') as f:
+        with open(DB, 'a+') as f:
             coins = [x.strip('\n') for x in f.readlines()]
             
             for coin in coins:
@@ -27,7 +27,6 @@ try:
                 with open(DB, 'r+') as f:
                     coindb = f.readlines()
 
-                    print coindb
                     for idx, coin in enumerate(coindb):
                         if cur[1:] in coindb[idx]:
                             del coindb[idx]
