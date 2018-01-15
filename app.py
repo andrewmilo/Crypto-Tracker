@@ -18,8 +18,9 @@ try:
             start_flag = False
             print
 
-        print "\nEnter Name:"
-        cur = raw_input()
+        cur = raw_input('\nEnter Name and Quantity: ')
+        # name = cur.split(' ')[0:-1][0]
+        # quant = cur.split(' ')[-1]
         if len(cur):
             if cur[0] == '+':
                 with open(DB, 'a+') as f:
@@ -36,5 +37,7 @@ try:
                     f.truncate()
             else:
                 print "Value (USD): " + coinmarketcap.ticker(currency=cur)[0]['price_usd']
+        else:
+            continue
 except KeyboardInterrupt:
     pass
